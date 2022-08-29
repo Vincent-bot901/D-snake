@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Dagmar Snake</title>
+    <link rel=stylesheet id="style" type="text/css" href="./css/main-snake.css" />
+    <link rel="shortcut icon" href="css/images/snakeblock.png" />
+    <style>
+      .snake-toolbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index:10000;
+        padding: 5px;
+      }
+    </style>
+<script>
+
+function getTheme () {
+    function changeTheme(themeUrl) {
+      var elm = document.getElementById("style");
+      elm && elm.remove();
+
+      var newCss = document.createElement("link");
+      newCss.id = "style";
+      newCss.rel = "stylesheet";
+      newCss.type = "text/css";
+      newCss.href = themeUrl;
+      document.head.appendChild(newCss);
+    }
+    var index = document.getElementById("select").selectedIndex;
+    switch (index) {
+        case 0: 
+          changeTheme('css/light-snake.css?' + Math.random());
+          
+    }
+    setTimeout(function() {
+        document.getElementById('game-area').focus();
+    }, 10);
+}
+
+
+
+</script>
+</head>
+<body>
+    
+
+    <!--
+      <h2>Select which mode you would like to play in.</h2>
+      <button id="Easy">Easy</button><br />
+      <button id="Medium">Medium</button><br />
+      <button id="Difficult">Difficult</button>
+
+<button id="high-score">Get your current high score for this game.</button>
+-->
+    <div id="mode-wrapper" style="display: inline; width: auto;">
+    </div>
+
+    <div id="game-area" tabindex="0">
+    </div>
+    <script type="text/javascript" src="./js/snake.js"></script>
+    <script type="text/javascript" src="./js/init.js"></script>
+    
+</body>
+</html>
